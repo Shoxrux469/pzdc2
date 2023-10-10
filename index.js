@@ -82,10 +82,10 @@ function reload(arr) {
     btn.onclick = () => {
       if (busket.includes(item.id)) {
         // delete
-        let idx = busket.indexOf(item.id)
-        busket.splice(idx, 1)
+        // let idx = busket.indexOf(item.id)
+        // busket.splice(idx, 1)
 
-        // busket = busket.filter((id) => id !== item.id);
+        busket = busket.filter((id) => id !== item.id);
 
         btn.classList.remove("btn_added");
         btn.innerHTML = "В избранное";
@@ -154,21 +154,23 @@ function busket_reload(ids_arr) {
     // console.log(typeof +ItemPrice.innerHTML);
     plus.onclick = () => {
       num.innerHTML++;
-      numValue += item.price
+      numValue += +ItemPrice.innerHTML
       // item.price + ItemPrice.innerHTML
       // +ItemPrice.innerHTML + (+item.innerHTML)
     };
     minus.onclick = () => {
       num.innerHTML--;
       // ItemPrice.innerHTML - ItemPrice.innerHTML
-      numValue -= item.price
+      numValue += +ItemPrice.innerHTML
       if (num.innerHTML == 0) {
-        let idx = temp.indexOf(item.id)
-        temp.splice(idx, 1)
+        // let idx = temp.indexOf(item.id)
+        // temp.splice(idx, 1)
+        busket = busket.filter((id) => id !== item.id);
+        busket_reload(busket);
       }
     };
     // console.log(item);
-    console.log(typeof ItemPrice.innerHTML); 
+    console.log(typeof ItemPrice.innerHTML);  
   }
 }
 
